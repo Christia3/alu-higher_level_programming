@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""YES"""
+"""Are you docuemnted ?"""
 
 
 import json
@@ -7,4 +7,4 @@ import json
 
 def from_json_string(my_str):
     """How far now"""
-    return json.loads(my_str)i
+    return json.loads(my_str)
