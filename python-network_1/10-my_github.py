@@ -1,21 +1,16 @@
 #!/usr/bin/python3
-import requests
-import sys
+"""A script that takes GitHub credentials."""
 
-if __name__ == "__main__":
-    username = sys.argv[1]
-    token = sys.argv[2]
 
-    # GitHub API URL to get user details
-    url = "https://api.github.com/user"
+if __name__ == '__main__':
+    import requests
+    from requests.auth import HTTPBasicAuth
+    import sys
 
-    # Make the GET request with Basic Authentication
-    response = requests.get(url, auth=(username, token))
-
-    # Check if the response is successful
-    if response.status_code == 200:
-        # Parse the response JSON to get the user ID
-        print(response.json().get("id"))
-    else:
-        print(None)
-
+    url = 'https://api.github.com/user'
+    user = sys.argv[1]
+    xyz = sys.argv[2]
+    authori = HTTPBasicAuth(username=user, password=xyz)
+    response = requests.get(url, auth=authori)
+    result = response.json()
+    print(result.get('id'))
